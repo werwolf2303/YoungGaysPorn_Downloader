@@ -1,34 +1,61 @@
 package com.down;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-import sun.nio.ch.FileKey;
 
 import java.io.*;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Extractor {
     private static boolean debug = false;
-    public static void main(String[] args) throws InterruptedException {
-        clean();
-        try {
-            if (debug) {
-                Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
-                System.out.print("URL Eingeben: ");
-                downloadHTML(sc.next());
-            } else {
-                try {
-                    if (args[0].equals("--no-ui")) {
-                        downloadHTML(args[1]);
+    public static void main(String[] args) {
+        if(wget()) {
+            clean();
+            try {
+                if (debug) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.print("URL Eingeben: ");
+                    downloadHTML(sc.next());
+                } else {
+                    try {
+                            if (args[0].equals("--no-ui")) {
+                                downloadHTML(args[2]);
+                            }
+                    } catch (ArrayIndexOutOfBoundsException er) {
+                        UI.create();
                     }
-                }catch (ArrayIndexOutOfBoundsException er) {
-                    UI.create();
                 }
+            } catch (IllegalArgumentException es) {
+                System.out.println("Keine URL angegeben");
             }
-        }catch (IllegalArgumentException es) {
-            System.out.println("Keine URL angegeben");
+        }else{
+            if(!debug) {
+               new Errors().x001();
+            }
+        }
+    }
+    public static void initUI(String urls) {
+        if(wget()) {
+            Extractor.clean();
+            Extractor.downloadHTML(urls);
+            try {
+                Thread.sleep(999);
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
+        }else{
+            new Errors().x001();
+        }
+    }
+    public static boolean wget() {
+        String path = System.getenv().values().toString();
+        if(path.toLowerCase().contains("wget")) {
+            return true;
+        }else{
+            File f = new File("C:\\windows\\system32\\wget.exe");
+            if(f.exists()) {
+                return true;
+            }else{
+                return false;
+            }
         }
     }
     public static void downloadHTML(String url) {
@@ -41,7 +68,6 @@ public class Extractor {
         }
     }
     public static void readPage1() {
-        //<iframe width="640" height="385" src=
         try {
             File myObj = new File("index.html");
             Scanner myReader = new Scanner(myObj);
@@ -76,7 +102,6 @@ public class Extractor {
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 String nach = "";
-                String title = "";
                 if(data.contains("video_url: ")) {
                     String use = data;
                     String[] json = use.split(",");

@@ -1,7 +1,6 @@
 package com.down;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,15 +23,9 @@ public class UI {
         b.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Extractor.clean();
                 String urls = url.getText();
                 if(!urls.equals("")) {
-                    Extractor.downloadHTML(urls);
-                    try {
-                        Thread.sleep(999);
-                    } catch (InterruptedException interruptedException) {
-                        interruptedException.printStackTrace();
-                    }
+                    Extractor.initUI(urls);
                 }
             }
         });
