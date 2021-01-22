@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 public class Extractor {
     private static boolean debug = false;
+
     public static void main(String[] args) {
-        if(wget()) {
-            clean();
+        clean();
+        if (wget()) {
             try {
                 if (debug) {
                     Scanner sc = new Scanner(System.in);
@@ -16,9 +17,9 @@ public class Extractor {
                     downloadHTML(sc.next());
                 } else {
                     try {
-                            if (args[0].equals("--no-ui")) {
-                                downloadHTML(args[2]);
-                            }
+                        if (args[0].equals("--no-ui")) {
+                            downloadHTML(args[2]);
+                        }
                     } catch (ArrayIndexOutOfBoundsException er) {
                         UI.create();
                     }
@@ -26,28 +27,42 @@ public class Extractor {
             } catch (IllegalArgumentException es) {
                 System.out.println("Keine URL angegeben");
             }
-        }else{
-            if(!debug) {
-               new Errors().x001();
+        } else {
+            if (!debug) {
+                new Errors().x001();
             }
         }
     }
+
     public static void initUI(String urls) {
-        if(wget()) {
+        if (wget()) {
             Extractor.clean();
             Extractor.downloadHTML(urls);
-            try {
-                Thread.sleep(999);
-            } catch (InterruptedException interruptedException) {
-                interruptedException.printStackTrace();
-            }
-        }else{
+        } else {
             new Errors().x001();
         }
     }
+
+    public static String getPornName() {
+        try {
+            File myObj = new File("index.html");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                if (data.contains("<title")) {
+                    String title = data.replace("<title>", "").replace("</title>", "").replace(" | Young Gays porn", "");
+                    return title;
+                }
+            }
+            myReader.close();
+        } catch (FileNotFoundException f) {
+            System.err.println("Error");
+        }
+        return null;
+    }
     public static boolean wget() {
         String path = System.getenv().values().toString();
-        if(path.toLowerCase().contains("wget")) {
+        if(path.toLowerCase().contains("gnuwin32")) {
             return true;
         }else{
             File f = new File("C:\\windows\\system32\\wget.exe");
@@ -61,6 +76,7 @@ public class Extractor {
     public static void downloadHTML(String url) {
         try {
             Runtime.getRuntime().exec("wget -O index.html " + url);
+            System.out.println("Download Page");
             Thread.sleep(999);
             readPage1();
         }catch (IOException | InterruptedException es) {
@@ -71,7 +87,6 @@ public class Extractor {
         try {
             File myObj = new File("index.html");
             Scanner myReader = new Scanner(myObj);
-            System.out.println("Download Embed");
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 if(data.contains("<iframe width=")) {
@@ -90,6 +105,7 @@ public class Extractor {
         try {
             Runtime.getRuntime().exec("wget -O video.html " + url);
             Thread.sleep(999);
+            System.out.println("Download Embed");
             read2();
         }catch (IOException | InterruptedException ess) {
             System.err.println("Error");
@@ -108,7 +124,6 @@ public class Extractor {
                     String conv = json[4].replace("video_url:", "").replace("'", "");
                     String[] split  = conv.split("/?br=");
                     nach =  split[0].replace("/?", "");
-                    System.out.println(nach);
                 }
                 downloadmp4(nach);
             }
@@ -122,12 +137,14 @@ public class Extractor {
         try {
             String OS = System.getProperty("os.name").toLowerCase();
             if(OS.contains("windows")) {
-                Runtime.getRuntime().exec("cmd /c start cmd.exe /c wget " + url);
+                String name = getPornName();
+                Thread.sleep(0);
+                Runtime.getRuntime().exec("cmd /c start cmd.exe /c wget -O \"" + name + ".mp4\" " + url);
             }else{
-                Runtime.getRuntime().exec("/bin/bash -c wget " + url);
+                Runtime.getRuntime().exec("/bin/bash -c wget -O " + getPornName() + " " + url);
             }
-        }catch (IOException er) {
-
+        }catch (IOException | InterruptedException er) {
+            System.out.println("Error");
         }
     }
     public static void clean() {

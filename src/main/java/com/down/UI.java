@@ -26,6 +26,11 @@ public class UI {
                 String urls = url.getText();
                 if(!urls.equals("")) {
                     Extractor.initUI(urls);
+                    try {
+                        Thread.sleep(999);
+                    } catch (InterruptedException interruptedException) {
+                        interruptedException.printStackTrace();
+                    }
                 }
             }
         });
