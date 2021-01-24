@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Extractor {
-    private static boolean debug = false;
+    private static boolean debug = true;
 
     public static void main(String[] args) {
         clean();
@@ -17,9 +17,20 @@ public class Extractor {
                     downloadHTML(sc.next());
                 } else {
                     try {
-                        if (args[0].equals("--no-ui")) {
-                            downloadHTML(args[2]);
-                        }
+                            if (args[0].equals("--no-ui")) {
+                                downloadHTML(args[2]);
+                            } else {
+                                if (args[0].toLowerCase().equals("--debug")) {
+                                    debug = true;
+                                    Extractor.main(new String[]{});
+                                } else {
+                                    if (args[0].toLowerCase().equals("--help")) {
+                                        System.out.println("-- YGPDownloader --\n\nYGPDownload [args]\n\nargs:\n\n--debug (Sets the program to debug mode)\n\n--no-ui [Porn URL] (Run this program from the command prompt)\n\nWritten by Werwolf2303 (Gianluca.B)\n-- YGPDownloader --");
+                                    } else {
+                                        System.out.println("-- YGPDownloader --\n\nYGPDownload [args]\n\nargs:\n\n--debug (Sets the program to debug mode)\n\n--no-ui [Porn URL] (Run this program from the command prompt)\n\nWritten by Werwolf2303 (Gianluca.B)\n-- YGPDownloader --");
+                                    }
+                                }
+                            }
                     } catch (ArrayIndexOutOfBoundsException er) {
                         UI.create();
                     }
@@ -61,16 +72,20 @@ public class Extractor {
         return null;
     }
     public static boolean wget() {
-        String path = System.getenv().values().toString();
-        if(path.toLowerCase().contains("gnuwin32")) {
-            return true;
-        }else{
-            File f = new File("C:\\windows\\system32\\wget.exe");
-            if(f.exists()) {
+        if(OSUtils.isWindows()) {
+            String path = System.getenv().values().toString();
+            if (path.toLowerCase().contains("gnuwin32")) {
                 return true;
-            }else{
-                return false;
+            } else {
+                File f = new File("C:\\windows\\system32\\wget.exe");
+                if (f.exists()) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
+        }else{
+            return true;
         }
     }
     public static void downloadHTML(String url) {
@@ -123,8 +138,10 @@ public class Extractor {
                     String[] json = use.split(",");
                     String conv = json[4].replace("video_url:", "").replace("'", "");
                     String[] split  = conv.split("/?br=");
-                    nach =  split[0].replace("/?", "");
+                    String[] split2 = split[0].replace("/?", "").replace(" ", "\n").split("\n");
+                    nach =  split2[2];
                 }
+                System.out.print(nach);
                 downloadmp4(nach);
             }
             myReader.close();
@@ -141,7 +158,9 @@ public class Extractor {
                 Thread.sleep(0);
                 Runtime.getRuntime().exec("cmd /c start cmd.exe /c wget -O \"" + name + ".mp4\" " + url);
             }else{
-                Runtime.getRuntime().exec("/bin/bash -c wget -O " + getPornName() + " " + url);
+                String name = getPornName();
+                Thread.sleep(0);
+                Runtime.getRuntime().exec("/bin/bash -c wget -O \"" + name + "\".mp4 " + url);
             }
         }catch (IOException | InterruptedException er) {
             System.out.println("Error");
