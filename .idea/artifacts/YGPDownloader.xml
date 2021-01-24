@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="YGPDownloader">
+    <output-path>$PROJECT_DIR$/out/artifacts/YGPDownloader</output-path>
+    <root id="archive" name="YGPDownloader.jar">
+      <element id="module-output" name="VideoDownloader" />
+    </root>
+  </artifact>
+</component>
