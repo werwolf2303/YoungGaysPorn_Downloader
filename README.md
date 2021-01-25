@@ -7,3 +7,16 @@
 <h4>I am proud to announce that YGPDownloader is now running reliably</h4>
 
 
+#Checklist
+ 
+ [x] - Add arguments
+ 
+ [ ] - Show download progress
+ 
+ [ ] - Add help argument
+ 
+ [ ] - Add ffmpeg support
+ 
+ [ ] - Add wide linux support
+ 
+ [ ] - Add Emscripten build 
