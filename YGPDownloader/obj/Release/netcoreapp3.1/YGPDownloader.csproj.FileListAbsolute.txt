@@ -10,3 +10,4 @@ C:\Users\Werwolf2303\source\repos\YGPDownloader\YGPDownloader\obj\Release\netcor
 C:\Users\Werwolf2303\source\repos\YGPDownloader\YGPDownloader\obj\Release\netcoreapp3.1\YGPDownloader.dll
 C:\Users\Werwolf2303\source\repos\YGPDownloader\YGPDownloader\obj\Release\netcoreapp3.1\YGPDownloader.pdb
 C:\Users\Werwolf2303\source\repos\YGPDownloader\YGPDownloader\obj\Release\netcoreapp3.1\YGPDownloader.genruntimeconfig.cache
+C:\Users\Werwolf2303\source\repos\YGPDownloader\YGPDownloader\obj\Release\netcoreapp3.1\YGPDownloader.csprojAssemblyReference.cache

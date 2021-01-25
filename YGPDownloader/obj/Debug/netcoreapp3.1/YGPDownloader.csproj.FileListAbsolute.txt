@@ -11,3 +11,16 @@ C:\Users\Werwolf2303\source\repos\YGPDownloader\YGPDownloader\obj\Debug\netcorea
 C:\Users\Werwolf2303\source\repos\YGPDownloader\YGPDownloader\obj\Debug\netcoreapp3.1\YGPDownloader.dll
 C:\Users\Werwolf2303\source\repos\YGPDownloader\YGPDownloader\obj\Debug\netcoreapp3.1\YGPDownloader.pdb
 C:\Users\Werwolf2303\source\repos\YGPDownloader\YGPDownloader\obj\Debug\netcoreapp3.1\YGPDownloader.genruntimeconfig.cache
+C:\Users\Werwolf2303\Documents\GitHub\new\new\new\YoungGaysPorn_Downloader\YGPDownloader\bin\Debug\netcoreapp3.1\YGPDownloader.exe
+C:\Users\Werwolf2303\Documents\GitHub\new\new\new\YoungGaysPorn_Downloader\YGPDownloader\bin\Debug\netcoreapp3.1\YGPDownloader.deps.json
+C:\Users\Werwolf2303\Documents\GitHub\new\new\new\YoungGaysPorn_Downloader\YGPDownloader\bin\Debug\netcoreapp3.1\YGPDownloader.runtimeconfig.json
+C:\Users\Werwolf2303\Documents\GitHub\new\new\new\YoungGaysPorn_Downloader\YGPDownloader\bin\Debug\netcoreapp3.1\YGPDownloader.runtimeconfig.dev.json
+C:\Users\Werwolf2303\Documents\GitHub\new\new\new\YoungGaysPorn_Downloader\YGPDownloader\bin\Debug\netcoreapp3.1\YGPDownloader.dll
+C:\Users\Werwolf2303\Documents\GitHub\new\new\new\YoungGaysPorn_Downloader\YGPDownloader\bin\Debug\netcoreapp3.1\YGPDownloader.pdb
+C:\Users\Werwolf2303\Documents\GitHub\new\new\new\YoungGaysPorn_Downloader\YGPDownloader\obj\Debug\netcoreapp3.1\YGPDownloader.csprojAssemblyReference.cache
+C:\Users\Werwolf2303\Documents\GitHub\new\new\new\YoungGaysPorn_Downloader\YGPDownloader\obj\Debug\netcoreapp3.1\YGPDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Werwolf2303\Documents\GitHub\new\new\new\YoungGaysPorn_Downloader\YGPDownloader\obj\Debug\netcoreapp3.1\YGPDownloader.AssemblyInfoInputs.cache
+C:\Users\Werwolf2303\Documents\GitHub\new\new\new\YoungGaysPorn_Downloader\YGPDownloader\obj\Debug\netcoreapp3.1\YGPDownloader.AssemblyInfo.cs
+C:\Users\Werwolf2303\Documents\GitHub\new\new\new\YoungGaysPorn_Downloader\YGPDownloader\obj\Debug\netcoreapp3.1\YGPDownloader.dll
+C:\Users\Werwolf2303\Documents\GitHub\new\new\new\YoungGaysPorn_Downloader\YGPDownloader\obj\Debug\netcoreapp3.1\YGPDownloader.pdb
+C:\Users\Werwolf2303\Documents\GitHub\new\new\new\YoungGaysPorn_Downloader\YGPDownloader\obj\Debug\netcoreapp3.1\YGPDownloader.genruntimeconfig.cache
