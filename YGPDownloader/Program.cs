@@ -17,6 +17,9 @@ namespace YGPDownloader
                 if(args[0].Equals("--help")) {
                 help();
                 }
+                if(args[0].Equals("--ffmpeg")) {
+                Console.WriteLine("Not implemented yet");
+                }
                 if(args[0].Equals("--debug"))
                 {
                     debug = true;
@@ -124,7 +127,7 @@ namespace YGPDownloader
             {
                 using (WebClient web1 = new WebClient())
                 {
-                    Console.WriteLine("Downloading... (Please wait a moment)");
+                    Console.WriteLine("Downloading porn... (Please wait a moment)" + " mediatype {" + "mp4" + "}");
                     web1.DownloadFile(url, getPornName() + ".mp4");
                 }
                 Console.WriteLine("Download Complete");
