@@ -14,22 +14,33 @@ namespace YGPDownloader
         {
             try
             {
+                if(args[0].Equals("--help")) {
+                help();
+                }
                 if(args[0].Equals("--debug"))
                 {
                     debug = true;
                     Console.WriteLine("Enter URL:");
                     string userName = Console.ReadLine();
+                    if(userName.Contains("younggaysporn")) {
                     download(userName, "index.html");
                     rIndex();
                     rVideo();
                     clean();
+                    }else{
+                     invalidURL();
+                    }
                 }
                 else
                 {
+                    if(args[0].Contains("younggaysporn")) {
                     download(args[0], "index.html");
                     rIndex();
                     rVideo();
                     clean();
+                    }else{
+                      invalidURL();
+                    }
                 }
             }catch(IndexOutOfRangeException ex)
             {
@@ -37,9 +48,12 @@ namespace YGPDownloader
                 help();
             }
         }
+        static void invalidURL() {
+          Console.WriteLine("Invalid URL");
+        }
         static void help()
         {
-            Console.WriteLine("-- YGPDownloader --\n\nYGPDownloader.exe [DownloadURL]\nYGPDownloader.exe [args]\n\nargs:\n\n--debug (Set to DebugMode)\n\n\nWritten by Werwolf2303 (Gianluca.B)\n-- YGPDownloader --");
+            Console.WriteLine("-- YGPDownloader --\n\nYGPDownloader.exe [DownloadURL]\nYGPDownloader.exe [args]\n\nargs:\n\n--debug (Set to DebugMode)\n--help (Show help)\n\n\nWritten by Werwolf2303 (Gianluca.B)\n-- YGPDownloader --");
         }
         static void rVideo()
         {
